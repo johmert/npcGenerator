@@ -1,4 +1,4 @@
-let display = document.getElementById('character');
+let display = document.getElementById('character')
 let bought = document.getElementById('character2');
 let rollButton = document.getElementById('roll');
 let buyButton = document.getElementById('buy');
@@ -33,10 +33,12 @@ const characterText = character => {
 }
 
 const displayCharacter = () => {
+    display.style.border = '2px solid green';
+    display.style.color = 'green';
     display.innerHTML = characterText(rolledCharacter());
 }
 
-rollButton.onclick = displayCharacter;
+rollButton.addEventListener('click', displayCharacter);
 
 const randomNum = () => {
     return Math.floor(Math.random() * 7)
@@ -67,7 +69,9 @@ const purchaseStatsCharacter = () => {
 
 
 const boughtCharacter = () => {
+    bought.style.border = '2px solid darkred';
+    bought.style.color = 'darkred';
     bought.innerHTML = characterText(purchaseStatsCharacter());
 }
 
-buyButton.onclick = boughtCharacter;
+buyButton.addEventListener('click', boughtCharacter);
