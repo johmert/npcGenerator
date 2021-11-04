@@ -1,3 +1,6 @@
+let display = document.getElementById('character');
+let rollButton = document.getElementById('roll');
+
 const character = (str, dex, con, int, wis, cha) => {
     return {
         strength: str,
@@ -19,8 +22,7 @@ const rolledCharacter = () => {
     return result;
 }
 
-
-const displayCharacter = (character) => {
+const characterText = character => {
     let result = '';
     for(const [key, value] of Object.entries(character)){
         result += key + ": " + value + "<br>";
@@ -28,6 +30,8 @@ const displayCharacter = (character) => {
     return result;
 }
 
-let display = document.getElementById('character');
+const displayCharacter = text => {
+    display.innerHTML = characterText(rolledCharacter());
+}
 
-display.innerHTML = displayCharacter(rolledCharacter());
+rollButton.onclick = displayCharacter;
